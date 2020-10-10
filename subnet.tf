@@ -9,6 +9,8 @@ resource "aws_subnet" "eks-lab-pub" {
     	Name = "eks-lab"
     	Terraform = "true"
     	Turbonomic = "true"
+    	"kubernetes.io/cluster/eks-lab" = "shared"
+    	"kubernetes.io/role/elb" = "1"
   	}
 }
 
@@ -23,5 +25,7 @@ resource "aws_subnet" "eks-lab-priv" {
     	Name = "eks-lab"
     	Terraform = "true"
     	Turbonomic = "true"
+    	"kubernetes.io/cluster/eks-lab" = "shared"
+    	"kubernetes.io/role/internal-elb" = "1"
   	}
 }

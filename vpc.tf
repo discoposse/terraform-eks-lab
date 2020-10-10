@@ -9,5 +9,6 @@ resource "aws_vpc" "eks-lab-vpc" {
     Name = "eks-lab"
     Terraform = "true"
     Turbonomic = "true"
+    "kubernetes.io/cluster/eks-lab" = "shared"
   }
 }

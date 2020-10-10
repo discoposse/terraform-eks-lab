@@ -5,12 +5,12 @@ resource "aws_eks_node_group" "eks-lab" {
 
   subnet_ids = aws_subnet.eks-lab-pub.*.id
 
-  instance_types = ["t2.small"]
+  instance_types = ["t3.small"]
 
   scaling_config {
-    desired_size = 1
+    desired_size = 3
     max_size     = 3
-    min_size     = 1
+    min_size     = 3
   }
 
   # Optional: Allow external changes without Terraform plan difference
