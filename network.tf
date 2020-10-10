@@ -13,8 +13,10 @@ resource "aws_route_table" "eks-lab-public-crt" {
         gateway_id = "${aws_internet_gateway.eks-lab-igw.id}" 
     }
     
-    tags {
-        Name = "eks-lab-public-crt"
-    }
+    tags = {
+    	Name = "eks-lab"
+    	Terraform = "true"
+    	Turbonomic = "true"
+  	}
 }
 

@@ -9,7 +9,7 @@ resource "aws_subnet" "eks-lab-pub" {
     	Name = "eks-lab"
     	Terraform = "true"
     	Turbonomic = "true"
-  }
+  	}
 }
 
 resource "aws_subnet" "eks-lab-priv" {
@@ -23,5 +23,5 @@ resource "aws_subnet" "eks-lab-priv" {
     	Name = "eks-lab"
     	Terraform = "true"
     	Turbonomic = "true"
-  }
+  	}
 }

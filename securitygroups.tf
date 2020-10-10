@@ -22,7 +22,16 @@ resource "aws_security_group" "ssh-allowed" {
         cidr_blocks = var.allowed_ip_network
     }
 
-    tags {
-        Name = "ssh-http-allow"
+    ingress {
+        from_port = 443
+        to_port = 443
+        protocol = "tcp"
+        cidr_blocks = var.allowed_ip_network
+    }
+
+    tags = {
+        Name = "eks-lab-allow-ssh-http-https"
+        Terraform = "true"
+        Turbonomic = "true"
     }
 }
