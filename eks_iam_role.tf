@@ -1,6 +1,8 @@
 resource "aws_iam_role" "eks-lab-cluster-role" {
   name = "eks-lab-cluster-role"
 
+  force_detach_policies = "true"
+
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -32,6 +34,8 @@ resource "aws_iam_role_policy_attachment" "eks-lab-cluster-role-AmazonEKSVPCReso
 
 resource "aws_iam_role" "eks-lab-node-group" {
   name = "eks-lab-node-group"
+
+  force_detach_policies = "true"
 
   assume_role_policy = jsonencode({
     Statement = [{
