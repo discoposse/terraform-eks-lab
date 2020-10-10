@@ -1,8 +1,17 @@
+data "aws_subnet_ids" "eks-lab-pub" {
+  vpc_id = aws_vpc.eks-lab-vpc.id
+}
+
+data "aws_subnet" "eks-lab-pub" {
+  for_each = data.aws_subnet_ids.eks-lab-pub.ids
+  subnet_id = each.value
+}
+
 resource "aws_eks_node_group" "eks-lab" {
   cluster_name    = aws_eks_cluster.eks-lab.name
   node_group_name = "eks-lab"
   node_role_arn   = aws_iam_role.eks-lab-node-group.arn
-  subnet_ids = ["subnet-00f83ae395e8d08b7", "subnet-02dbb4925d946527c", "subnet-03684fda8a5f53fc3", "subnet-08e9f477a9a73d4e1", "subnet-0d2eb1d50e8dbf1ea", "subnet-0de75af25c0b0be24"]
+  subnet_ids = data.aws_subnet.eks-lab-pub.subnet_id
 
   scaling_config {
     desired_size = 1
