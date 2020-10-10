@@ -6,3 +6,4 @@ variable "aws_key_name" {}
 variable "aws_key_fingerprint" {}
 variable "aws_certificate_arn" {}
 variable "aws_launch_subnet" {}
+variable "allowed_ip_network" {}
