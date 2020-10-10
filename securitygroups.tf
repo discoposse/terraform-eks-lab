@@ -1,5 +1,6 @@
 resource "aws_security_group" "ssh-allowed" {
     vpc_id = aws_vpc.eks-lab-vpc.id
+    name = "eks-lab-allow-ssh-http-https"
     
     egress {
         from_port = 0
