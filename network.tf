@@ -1,8 +1,11 @@
 resource "aws_internet_gateway" "eks-lab-igw" {
     vpc_id = "${aws_vpc.eks-lab-vpc.id}"
-    tags {
-        Name = "eks-lab-igw"
-    }
+    
+    tags = {
+    	Name = "eks-lab"
+    	Terraform = "true"
+    	Turbonomic = "true"
+  	}
 }
 
 resource "aws_route_table" "eks-lab-public-crt" {
