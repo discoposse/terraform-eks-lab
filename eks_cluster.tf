@@ -1,12 +1,3 @@
-data "aws_subnet_ids" "eks-lab-pub-list" {
-  vpc_id = aws_vpc.eks-lab-vpc.id
-}
-
-data "aws_subnet" "eks-lab-pub-list" {
-  for_each = data.aws_subnet_ids.eks-lab-pub-list.ids
-  subnet_id = each.value
-}
-
 resource "aws_eks_cluster" "eks-lab" {
   name     = "eks-lab"
   role_arn = aws_iam_role.eks-lab-cluster-role.arn
