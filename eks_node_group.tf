@@ -3,7 +3,7 @@ resource "aws_eks_node_group" "eks-lab" {
   node_group_name = "eks-lab"
   node_role_arn   = aws_iam_role.eks-lab-node-group.arn
 
-  subnet_ids = aws_subnet.eks-lab-pub.*.id
+  subnet_ids = concat([aws_subnet.eks-lab-pub.*.id],[aws_subnet.eks-lab-pub.*.id])
 
   instance_types = ["t3.small"]
 
