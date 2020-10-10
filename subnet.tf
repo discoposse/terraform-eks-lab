@@ -25,21 +25,3 @@ resource "aws_subnet" "eks-lab-priv" {
     	Turbonomic = "true"
   	}
 }
-
-#data "aws_subnet_ids" "subs" {
-#  vpc_id = aws_vpc.eks-lab-vpc.id
-#  for_each = data.aws_subnet_ids.eks-lab-pub.ids
-#  subnet_ids = each.value
-#}
-
-#data "aws_subnet" "eks-lab-pub-list" {
-#  for_each = data.aws_subnet_ids.eks-lab-pub-list.ids
-#  subnet_ids = each.value
-#}
-
-#data "aws_subnet_ids" "subs" {
-#  vpc_id              = "${data.aws_vpc.selected.id}"
-#  tags = {
-#    Tier              = each.value
-#   }
-#}
