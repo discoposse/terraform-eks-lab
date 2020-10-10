@@ -8,7 +8,7 @@ variable "allowed_ip_network" {}
 variable "eks_role_arn" {}
 
 variable "az_map" {
-	type = "map"
+	type = map
 
 	default = {
 		0 = "a"
