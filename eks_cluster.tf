@@ -1,9 +1,9 @@
-data "aws_subnet_ids" "eks-lab-pub" {
+data "aws_subnet_ids" "eks-lab-pub-list" {
   vpc_id = aws_vpc.eks-lab-vpc.id
 }
 
-data "aws_subnet" "eks-lab-pub" {
-  for_each = data.aws_subnet_ids.eks-lab-pub.ids
+data "aws_subnet" "eks-lab-pub-list" {
+  for_each = data.aws_subnet_ids.eks-lab-pub-list.ids
   subnet_id = each.value
 }
 
@@ -12,7 +12,7 @@ resource "aws_eks_cluster" "eks-lab" {
   role_arn = aws_iam_role.eks-lab-cluster-role.arn
 
   vpc_config {
-    subnet_ids = data.aws_subnet.eks-lab-pub.subnet_id
+    subnet_ids = data.aws_subnet.eks-lab-pub-list.subnet_id
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
