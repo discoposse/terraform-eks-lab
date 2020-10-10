@@ -5,10 +5,10 @@ This is a ground (or cloud) up deployment of an AWS EKS environment which can be
 ## Requirements
 
 You will need:
-* AWS IAM credentials - currently using root credentials (which is not idieal)
+* AWS IAM credentials - currently using root credentials (which is not ideal)
 * Terraform Cloud our Terraform Enterprise account
 
 
 ## About the Lab Code
 
-Terraform configuration built for Terraform 0.13.4 
+Terraform configuration built for Terraform 0.13.4 or higher
