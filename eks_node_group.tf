@@ -5,6 +5,8 @@ resource "aws_eks_node_group" "eks-lab" {
 
   subnet_ids = aws_subnet.eks-lab-pub.*.id
 
+  instance_type = "t2.small"
+
   scaling_config {
     desired_size = 1
     max_size     = 3
