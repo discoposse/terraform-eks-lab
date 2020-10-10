@@ -32,5 +32,5 @@ data "aws_subnet_ids" "eks-lab-pub-list" {
 
 data "aws_subnet" "eks-lab-pub-list" {
   for_each = data.aws_subnet_ids.eks-lab-pub-list.ids
-  subnet_id = each.value
+  subnet_ids = each.value
 }
