@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "eks-lab" {
-  name     = "terraform-eks-lab"
+  name     = "eks-lab"
   role_arn = aws_iam_role.eks-lab.arn
 
   vpc_config {
