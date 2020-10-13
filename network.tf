@@ -42,7 +42,7 @@ resource "aws_route_table_association" "priv_sub" {
  resource "aws_route_table_association" "pub_sub" {
     count = 3
 
-    subnet_id = aws_subnet.eks-lab-pub[count.index].id
+    subnet_id = aws_subnet.eks-lab-priv[count.index].id
     route_table_id = aws_route_table.eks-lab-public-crt.id
 
     lifecycle { 
