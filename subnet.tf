@@ -11,6 +11,7 @@ resource "aws_subnet" "eks-lab-pub" {
     	Turbonomic = "true"
     	"kubernetes.io/cluster/eks-lab" = "shared"
     	"kubernetes.io/role/elb" = "1"
+        net = "public"
   	}
 }
 
@@ -27,5 +28,6 @@ resource "aws_subnet" "eks-lab-priv" {
     	Turbonomic = "true"
     	"kubernetes.io/cluster/eks-lab" = "shared"
     	"kubernetes.io/role/internal-elb" = "1"
+        net = "private"
   	}
 }
