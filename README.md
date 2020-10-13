@@ -27,4 +27,19 @@ The lab does the following which is also completely removed when you do a deprov
 * Create an EKS Cluster
 * Create an EKS Node Group
 
+## Variables Needed for Terraform
 
+You will need to have the following defined in your Terraform configuration. This was built using Terraform Cloud and Terraform Enterprise so the description 
+
+| Variable  | Type | Content |
+| ------------- | ------------- | ------------- |
+| aws_access_key | sensitive | Your AWS programmatic API key |
+| aws_secret_key | sensitive | Your AWS API secret key |
+| aws_region | standard | Region to launch in (e.g. us-east-2) |
+| aws_key_name | text | Display name of your SSH key in AWS |
+| aws_key_fingerprint | text | SSH key fingerprint (hex format) from AWS |
+| aws_certificate_arn | text | ACM certificate ARN for TLS (not used yet) |
+| allowed_ip_network | HCL | Ingress networks for http/https/ssh using HCL format (e.g. ["0.0.0.0/0","10.0.0.0/16"] |
+| eks_node_min | numeric | Minimum number of EKS compute nodes (>=1) |
+| eks_node_max | numeric | Maximum number of EKS compute nodes |
+| eks_node_desired | numeric | Desired number of EKS nodes |
