@@ -1,6 +1,10 @@
-# Terraform EKS Lab
+# Terraform AWS EKS Lab
 
 This is a ground (or cloud) up deployment of an AWS EKS environment which can be used to build quick lab environments and easily tear them down for a true self-cleaning on-demand Kubernetes configuration.
+
+## Why does this exist?
+
+Setting up EKS for occasional use is not simple, nor is making sure you have all the dependencies, policies, networks, and more.  It's also easy to leave behind a lot of remnants in AWS which are either costly or confusing (e.g. empty policies, unused subnets)
 
 ## Requirements
 
@@ -43,3 +47,9 @@ You will need to have the following defined in your Terraform configuration. Thi
 | eks_node_min | numeric | Minimum number of EKS compute nodes (>=1) |
 | eks_node_max | numeric | Maximum number of EKS compute nodes |
 | eks_node_desired | numeric | Desired number of EKS nodes |
+
+## Terraform Cloud Settings / Preferences
+
+This was built using a VCS-backed configuration using GitHub using the very repository you're forking this from. 
+
+Execution Mode is set to Auto Apply.  In order to keep things from running every time documention or non-infra files are updated, there is a `trigger.txt` file which can be used as a way to force an apply. 
