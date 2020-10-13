@@ -9,9 +9,9 @@ resource "aws_eks_node_group" "eks-lab" {
   instance_types = ["t3.small"]
 
   scaling_config {
-    desired_size = 3
+    desired_size = 1
     max_size     = 3
-    min_size     = 3
+    min_size     = 1
   }
 
   # Optional: Allow external changes without Terraform plan difference
